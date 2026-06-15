@@ -1,8 +1,13 @@
-import { useState , useEffect } from "react"
-
+import { useState, useEffect } from "react"
+import { MyContext } from "./contexts/MyContext";
+import Auth from "./pages/Auth";
+import Home from "./pages/Home";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
- const [dark, setDark] = useState(false)
+
+  // Light and Dark Mood 
+  const [dark, setDark] = useState(false)
 
   useEffect(() => {
     if (dark) {
@@ -12,11 +17,24 @@ function App() {
     }
   }, [dark])
 
+  // Register and Login Handler
+
+  const [showLogin , setShowLogin] = useState(false);
 
   return (
-    <div className="h-screen w-full dark:bg-slate-950 dark:text-slate-50">
-      <h1>Expense Tracker</h1>
-    </div>
+    <MyContext.Provider value={{ dark, setDark , showLogin , setShowLogin }}>
+
+      <div className="w-full h-screen dark:bg-slate-950 dark:text-slate-50">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/Auth" element={<Auth/>} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+
+    </MyContext.Provider>
+
   );
 }
 
