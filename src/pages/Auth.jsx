@@ -12,7 +12,7 @@ function Auth() {
   return (
     <div className='w-full h-full flex justify-center items-center relative'>
       {showLogin ? <Login /> : <Register />}
-      <Link to={"/"} className='p-2 flex text-xs dark:text-slate-50 items-center bg-slate-900 border border-slate-800 rounded-lg hover:scale-110 transition duration-300 top-5 left-10 absolute cursor-pointer'>
+      <Link to={"/"} className='p-2 flex text-sm dark:text-slate-50 items-center bg-slate-900 border border-slate-800 rounded-lg hover:scale-110 transition duration-300 top-5 left-10 absolute cursor-pointer'>
         <TbHome className='mr-2'/> Home
       </Link>
       {alertControl.show && <Alert/>}

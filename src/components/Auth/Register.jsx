@@ -4,6 +4,7 @@ import { IoKeyOutline } from "react-icons/io5";
 import { useContext, useRef, useEffect, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 import { useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 function Register() {
 
@@ -37,108 +38,108 @@ function Register() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
     // check email correctness
-    if (!emailRegex.test(email)) {        
-            setAlertControl(
-                {
-                    show: true,
-                    type: "ERROR",
-                    messages: ["Email is not valid"]
-                }
-            )
-            return;
+    if (!emailRegex.test(email)) {
+      setAlertControl(
+        {
+          show: true,
+          type: "ERROR",
+          messages: ["Email is not valid"]
         }
-        // check Name Correctness
-        if (!userNameRegex.test(userName)) {          
-            setAlertControl(
-                {
-                    show: true,
-                    type: "ERROR",
-                    messages: ["Username is not valid"]
-                }
-            )
-            return;
+      )
+      return;
+    }
+    // check Name Correctness
+    if (!userNameRegex.test(userName)) {
+      setAlertControl(
+        {
+          show: true,
+          type: "ERROR",
+          messages: ["Username is not valid"]
         }
-        // Check password correctness
-        if (!passwordRegex.test(password)) {          
-            setAlertControl(
-                {
-                    show: true,
-                    type: "ERROR",
-                    messages: ["Password is not valid"]
-                }
-            )
-            return;
+      )
+      return;
+    }
+    // Check password correctness
+    if (!passwordRegex.test(password)) {
+      setAlertControl(
+        {
+          show: true,
+          type: "ERROR",
+          messages: ["Password is not valid"]
         }
-        // verify password
-        if (!passwordRegex.test(confirmPassword) || password !== confirmPassword) {          
-            setAlertControl(
-                {
-                    show: true,
-                    type: "ERROR",
-                    messages: ["Password dose not match with Confirm Password"]
-                }
-            )
-            return;
+      )
+      return;
+    }
+    // verify password
+    if (!passwordRegex.test(confirmPassword) || password !== confirmPassword) {
+      setAlertControl(
+        {
+          show: true,
+          type: "ERROR",
+          messages: ["Password dose not match with Confirm Password"]
         }
-         checkUserExistence(userName, email, password);
-         console.log(email + userName + password);
-         
+      )
+      return;
+    }
+    checkUserExistence(userName, email, password);
+    console.log(email + userName + password);
+
   }
 
   // check user existence in registerd Users list
-    const checkUserExistence = (userName, email, password) => {
+  const checkUserExistence = (userName, email, password) => {
 
-        if (registeredUsers.users.find((user) => user.email === email)) {
-                console.log("exist");
-            setAlertControl(
-                {
-                    show: true,
-                    type: "ERROR",
-                    messages: ["Email already exists"]
-                }
-            )
-            return;
+    if (registeredUsers.users.find((user) => user.email === email)) {
+      console.log("exist");
+      setAlertControl(
+        {
+          show: true,
+          type: "ERROR",
+          messages: ["Email already exists"]
         }
-        registerUser(userName, email, password);
-
+      )
+      return;
     }
+    registerUser(userName, email, password);
 
-    // register user finaly 
-     const registerUser = (userName, email, password) => {
-      console.log("logged in");
-      
+  }
 
-        // add to registered list 
-        setUserItem(
-            {
-                userName: userName,
-                email: email,
-                password: password,
-                role: "user",
-                theme: "dark",
-            }
-        )
-        // login with user
-        setUserData({
-            loggedIn: true,
-            userName: userName,
-            password: password,
-            theme: "dark",
-            role: "user",
-        })
+  // register user finaly 
+  const registerUser = (userName, email, password) => {
+    console.log("logged in");
 
-        // show login success message
-        setAlertControl({
-            show: true,
-            type: "SUCCESS",
-            messages: ["You Are Logged In."],
-        });
 
-        // redirect to home page after 1 second
-        setTimeout(() => {
-            navigate("/")
-        }, 1000)
-    }
+    // add to registered list 
+    setUserItem(
+      {
+        userName: userName,
+        email: email,
+        password: password,
+        role: "user",
+        theme: "dark",
+      }
+    )
+    // login with user
+    setUserData({
+      loggedIn: true,
+      userName: userName,
+      password: password,
+      theme: "dark",
+      role: "user",
+    })
+
+    // show login success message
+    setAlertControl({
+      show: true,
+      type: "SUCCESS",
+      messages: ["You Are Logged In."],
+    });
+
+    // redirect to home page after 1 second
+    setTimeout(() => {
+      navigate("/")
+    }, 1000)
+  }
 
 
 
@@ -167,15 +168,37 @@ function Register() {
           <span className='w-8 h-10 border-r dark:text-slate-50 border-slate-800 flex justify-center items-center'>
             <IoKeyOutline />
           </span>
-          <input ref={userPasswordInput} type="password" className='w-52 pl-2 outline-none text-slate-50' placeholder='Password :' />
+          <input ref={userPasswordInput}
+            type={showPassword ? "text" : "password"}
+            className='w-48 pl-2 outline-none text-slate-50'
+            placeholder='Password :'
+          />
+          <button
+            type='button'
+            onClick={() => setShowPassword(!showPassword)}
+            className='w-8 h-10 cursor-pointer border-l dark:text-slate-50 border-slate-800 flex justify-center items-center'>
+            {showPassword ? <FaEyeSlash className="text-slate-400" /> : <FaEye className="text-slate-400" />}
+          </button>
         </div>
 
-        <div className='w-full h-10 border my-4 border-slate-800 rounded-md flex'>
+        {/* confirm pass */}
+        <div className='w-full h-10 border border-slate-800 rounded-md flex my-4'>
           <span className='w-8 h-10 border-r dark:text-slate-50 border-slate-800 flex justify-center items-center'>
             <IoKeyOutline />
           </span>
-          <input ref={userConfirmPasswordInput} type="password" className='w-52 pl-2 outline-none text-slate-50' placeholder='Confirm Password :' />
+          <input ref={userConfirmPasswordInput}
+            type={showPassword ? "text" : "password"}
+            className='w-48 pl-2 outline-none text-slate-50'
+            placeholder='Confirm Password :'
+          />
+          <button
+            type='button'
+            onClick={() => setShowPassword(!showPassword)}
+            className='w-8 h-10 cursor-pointer border-l dark:text-slate-50 border-slate-800 flex justify-center items-center'>
+            {showPassword ? <FaEyeSlash className="text-slate-400" /> : <FaEye className="text-slate-400" />}
+          </button>
         </div>
+        
         <button type='button' onClick={RegisterHandler} className='w-full h-10 font-bold text-slate-50 bg-linear-to-r from-blue-500 to-purple-500 rounded-md'>
           Sign Up
         </button>

@@ -4,6 +4,7 @@ import { IoKeyOutline } from "react-icons/io5";
 import { useRef, useContext, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 import { useNavigate } from 'react-router-dom';
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 function Login() {
@@ -121,12 +122,24 @@ function Login() {
           <input ref={userEmailInput} type="email" className='w-52 pl-2 outline-none text-slate-50' placeholder='Email :' />
         </div>
 
+
         <div className='w-full h-10 border border-slate-800 rounded-md flex my-4'>
           <span className='w-8 h-10 border-r dark:text-slate-50 border-slate-800 flex justify-center items-center'>
             <IoKeyOutline />
           </span>
-          <input ref={userPasswordInput} type="password" className='w-52 pl-2 outline-none text-slate-50' placeholder='Password :' />
+          <input ref={userPasswordInput}
+            type={showPassword ? "text" : "password"}
+            className='w-48 pl-2 outline-none text-slate-50'
+            placeholder='Password :'
+          />
+          <button
+            type='button'
+            onClick={() => setShowPassword(!showPassword)}
+            className='w-8 h-10 cursor-pointer border-l dark:text-slate-50 border-slate-800 flex justify-center items-center'>
+            {showPassword ? <FaEyeSlash className="text-slate-400" /> : <FaEye className="text-slate-400" />}
+          </button>
         </div>
+
 
         <button
           type='button'
