@@ -37,9 +37,7 @@ function Register() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
     // check email correctness
-    if (!emailRegex.test(email)) {
-        console.log("email");
-        
+    if (!emailRegex.test(email)) {        
             setAlertControl(
                 {
                     show: true,
@@ -50,9 +48,7 @@ function Register() {
             return;
         }
         // check Name Correctness
-        if (!userNameRegex.test(userName)) {
-          console.log("name");
-          
+        if (!userNameRegex.test(userName)) {          
             setAlertControl(
                 {
                     show: true,
@@ -63,9 +59,7 @@ function Register() {
             return;
         }
         // Check password correctness
-        if (!passwordRegex.test(password)) {
-          console.log("pass");
-          
+        if (!passwordRegex.test(password)) {          
             setAlertControl(
                 {
                     show: true,
@@ -76,9 +70,7 @@ function Register() {
             return;
         }
         // verify password
-        if (!passwordRegex.test(confirmPassword) || password !== confirmPassword) {
-          console.log("pass2");
-          
+        if (!passwordRegex.test(confirmPassword) || password !== confirmPassword) {          
             setAlertControl(
                 {
                     show: true,

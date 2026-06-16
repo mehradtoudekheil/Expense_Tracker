@@ -105,12 +105,26 @@ function App() {
 
 
   // *** --- Show Alert --- ***
+  // set Alert
   const [alertControl, setAlertControl] = useState({
     show: false,
     type: "", // SUCCESS, ERROR, WARNING, INFO
     messages: []
   });
 
+  // clear Alert
+ useEffect(() => {
+    // set alert 
+    if (alertControl.show) {
+      setTimeout(() => {
+        setAlertControl({
+          show: false,
+          type: "",
+          messages: []
+        });
+      }, 2000);
+    }
+  }, [alertControl])
 
   return (
     <MyContext.Provider value={{
