@@ -1,17 +1,153 @@
 import React from 'react'
-import { CiUser , CiMail  } from "react-icons/ci";
+import { CiUser, CiMail } from "react-icons/ci";
 import { IoKeyOutline } from "react-icons/io5";
-import { useRef , useContext } from 'react';
+import { useContext, useRef, useEffect, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
 
-  const {setShowLogin} = useContext(MyContext);
+  // show password
+  const [showPassword, setShowPassword] = useState(false);
 
-  const userNameInput = useRef();
+  // go to home after SignUp 
+  const navigate = useNavigate();
+
+  // get inputs value
   const userEmailInput = useRef();
   const userPasswordInput = useRef();
   const userConfirmPasswordInput = useRef();
+  const userNameInput = useRef();
+
+  // get Context info
+  const { setUserData, setUserItem, registeredUsers, setShowLogin, setAlertControl } = useContext(MyContext);
+
+  // get input value and check it func
+  const RegisterHandler = () => {
+
+    // get inputs values
+    const userName = userNameInput.current.value;
+    const password = userPasswordInput.current.value;
+    const email = userEmailInput.current.value;
+    const confirmPassword = userConfirmPasswordInput.current.value;
+
+    // regexp
+    const userNameRegex = /^[a-zA-Z0-9_]{3,16}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&*!]).{8,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    // check email correctness
+    if (!emailRegex.test(email)) {
+        console.log("email");
+        
+            setAlertControl(
+                {
+                    show: true,
+                    type: "ERROR",
+                    messages: ["Email is not valid"]
+                }
+            )
+            return;
+        }
+        // check Name Correctness
+        if (!userNameRegex.test(userName)) {
+          console.log("name");
+          
+            setAlertControl(
+                {
+                    show: true,
+                    type: "ERROR",
+                    messages: ["Username is not valid"]
+                }
+            )
+            return;
+        }
+        // Check password correctness
+        if (!passwordRegex.test(password)) {
+          console.log("pass");
+          
+            setAlertControl(
+                {
+                    show: true,
+                    type: "ERROR",
+                    messages: ["Password is not valid"]
+                }
+            )
+            return;
+        }
+        // verify password
+        if (!passwordRegex.test(confirmPassword) || password !== confirmPassword) {
+          console.log("pass2");
+          
+            setAlertControl(
+                {
+                    show: true,
+                    type: "ERROR",
+                    messages: ["Password dose not match with Confirm Password"]
+                }
+            )
+            return;
+        }
+         checkUserExistence(userName, email, password);
+         console.log(email + userName + password);
+         
+  }
+
+  // check user existence in registerd Users list
+    const checkUserExistence = (userName, email, password) => {
+
+        if (registeredUsers.users.find((user) => user.email === email)) {
+                console.log("exist");
+            setAlertControl(
+                {
+                    show: true,
+                    type: "ERROR",
+                    messages: ["Email already exists"]
+                }
+            )
+            return;
+        }
+        registerUser(userName, email, password);
+
+    }
+
+    // register user finaly 
+     const registerUser = (userName, email, password) => {
+      console.log("logged in");
+      
+
+        // add to registered list 
+        setUserItem(
+            {
+                userName: userName,
+                email: email,
+                password: password,
+                role: "user",
+                theme: "dark",
+            }
+        )
+        // login with user
+        setUserData({
+            loggedIn: true,
+            userName: userName,
+            password: password,
+            theme: "dark",
+            role: "user",
+        })
+
+        // show login success message
+        setAlertControl({
+            show: true,
+            type: "SUCCESS",
+            messages: ["You Are Logged In."],
+        });
+
+        // redirect to home page after 1 second
+        setTimeout(() => {
+            navigate("/")
+        }, 1000)
+    }
+
 
 
   return (
@@ -48,15 +184,16 @@ function Register() {
           </span>
           <input ref={userConfirmPasswordInput} type="password" className='w-52 pl-2 outline-none text-slate-50' placeholder='Confirm Password :' />
         </div>
-        <button className='w-full h-10 font-bold text-slate-50 bg-linear-to-r from-blue-500 to-purple-500 rounded-md'>
+        <button type='button' onClick={RegisterHandler} className='w-full h-10 font-bold text-slate-50 bg-linear-to-r from-blue-500 to-purple-500 rounded-md'>
           Sign Up
         </button>
       </form>
       <p className='text-xs text-slate-400'>
-        Already have an account? <span onClick={()=>setShowLogin(true)} className='cursor-pointer text-blue-500'> Sign in</span>
+        Already have an account? <span onClick={() => setShowLogin(true)} className='cursor-pointer text-blue-500'> Sign in</span>
       </p>
     </div>
   )
 }
 
 export default Register
+

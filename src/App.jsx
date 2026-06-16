@@ -17,21 +17,24 @@ function App() {
     }
   }, [dark])
 
+  // *** --- Conditions --- *** 
+
   // Register and Login condition rendering 
-  const [showLogin , setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
 
-// *** --- Authentication --- ***
+  // *** --- Authentication --- ***
 
   // get Loggedin user information 
 
- const [userData, setUserData] = useState(() => {
+  const [userData, setUserData] = useState(() => {
     const saved = localStorage.getItem("userData");
     return saved
       ? JSON.parse(saved)
       : {
         loggedIn: false,
-        username: "",
+        userName: "",
+        email : "",
         password: "",
         theme: "dark",
         role: "user",
@@ -43,19 +46,94 @@ function App() {
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
 
+  // set Registerd User 
+
+  // set a user for add to registerd List 
+  const [userItem, setUserItem] = useState(null);
+
+  // set first user in list of registerd user
+  const [registeredUsers, setRegisteredUsers] = useState(() => {
+    const savedData = localStorage.getItem("registeredUsers");
+    if (savedData) {
+      return JSON.parse(savedData);
+    }
+    return {
+      users: [
+        {
+          userName: "admin",
+          email: "admin@gmail.com",
+          password: "*Admin1234",
+          role: "user",
+          theme: "darkt",
+        }
+      ]
+    };
+  });
+
+  // make Registerd users List 
+  useEffect(() => {
+    const savedData = localStorage.getItem("registeredUsers");
+    if (!savedData) {
+      localStorage.setItem(
+        "registeredUsers",
+        JSON.stringify(registeredUsers)
+      );
+    }
+  }, []);
+
+  // update Registerd users list
+
+  useEffect(() => {
+    if (userItem) {
+      setRegisteredUsers((prev) => {
+        const updated = {
+          ...prev,
+          users: [...prev.users, userItem],
+        };
+
+        localStorage.setItem(
+          "registeredUsers",
+          JSON.stringify(updated)
+        );
+
+        return updated;
+      });
+
+    }
+  }, [userItem]);
 
 
 
+  // *** --- Show Alert --- ***
+  const [alertControl, setAlertControl] = useState({
+    show: false,
+    type: "", // SUCCESS, ERROR, WARNING, INFO
+    messages: []
+  });
 
 
   return (
-    <MyContext.Provider value={{ dark, setDark , showLogin , setShowLogin  , userData , setUserData}}>
+    <MyContext.Provider value={{
+      dark,
+      setDark,
+      showLogin,
+      setShowLogin,
+      userData,
+      setUserData,
+      alertControl,
+      setAlertControl,
+      userItem,
+      setUserItem,
+      registeredUsers,
+      setRegisteredUsers
+
+    }}>
 
       <div className="w-full h-screen dark:bg-slate-950 dark:text-slate-50">
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/Auth" element={<Auth/>} />
+            <Route path="/" element={<Home />} />
+            <Route path="/Auth" element={<Auth />} />
           </Routes>
         </BrowserRouter>
       </div>
