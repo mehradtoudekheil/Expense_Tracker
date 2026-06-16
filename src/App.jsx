@@ -17,12 +17,39 @@ function App() {
     }
   }, [dark])
 
-  // Register and Login Handler
-
+  // Register and Login condition rendering 
   const [showLogin , setShowLogin] = useState(false);
 
+
+// *** --- Authentication --- ***
+
+  // get Loggedin user information 
+
+ const [userData, setUserData] = useState(() => {
+    const saved = localStorage.getItem("userData");
+    return saved
+      ? JSON.parse(saved)
+      : {
+        loggedIn: false,
+        username: "",
+        password: "",
+        theme: "dark",
+        role: "user",
+      };
+  });
+
+  // change logged in user data in localstorage
+  useEffect(() => {
+    localStorage.setItem("userData", JSON.stringify(userData));
+  }, [userData]);
+
+
+
+
+
+
   return (
-    <MyContext.Provider value={{ dark, setDark , showLogin , setShowLogin }}>
+    <MyContext.Provider value={{ dark, setDark , showLogin , setShowLogin  , userData , setUserData}}>
 
       <div className="w-full h-screen dark:bg-slate-950 dark:text-slate-50">
         <BrowserRouter>
