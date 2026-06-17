@@ -1,10 +1,40 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react"
 import { MyContext } from "./contexts/MyContext";
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
+
+
+
+  // *** --- Transactions --- *** 
+
+  // get transactions from localstorage
+  const [transactions, setTransactions] = useState(() => {
+    const savedData = localStorage.getItem("transactionsData");
+    return savedData ? JSON.parse(savedData) : [];
+  });
+  // add transactions to local storage
+  useEffect(() => {
+    localStorage.setItem(
+      "transactionsData",
+      JSON.stringify(transactions)
+    );
+  }, [transactions]);
+
+  // transaction item
+  const [transactionItem, setTransactionItem] = useState(null);
+  // add transaction item
+  useEffect(() => {
+    if (transactionItem) {
+      setTransactions((prev) => [
+        ...prev,
+        transactionItem
+      ]);
+    }
+  }, [transactionItem]);
+
 
   // Light and Dark Mood 
   const [dark, setDark] = useState(false)
@@ -34,7 +64,7 @@ function App() {
       : {
         loggedIn: false,
         userName: "",
-        email : "",
+        email: "",
         password: "",
         theme: "dark",
         role: "user",
@@ -113,7 +143,7 @@ function App() {
   });
 
   // clear Alert
- useEffect(() => {
+  useEffect(() => {
     // set alert 
     if (alertControl.show) {
       setTimeout(() => {
@@ -139,7 +169,11 @@ function App() {
       userItem,
       setUserItem,
       registeredUsers,
-      setRegisteredUsers
+      setRegisteredUsers,
+      transactions,
+      setTransactions,
+      transactionItem,
+      setTransactionItem
 
     }}>
 
