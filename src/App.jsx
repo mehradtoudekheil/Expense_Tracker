@@ -2,7 +2,7 @@ import { useState, useEffect, use } from "react"
 import { MyContext } from "./contexts/MyContext";
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useViewTransitionState } from "react-router-dom";
 
 function App() {
 
@@ -51,6 +51,7 @@ function App() {
 
   // Register and Login condition rendering 
   const [showLogin, setShowLogin] = useState(false);
+  const [showAdd , setShowAdd] = useState(false)
 
 
   // *** --- Authentication --- ***
@@ -173,7 +174,9 @@ function App() {
       transactions,
       setTransactions,
       transactionItem,
-      setTransactionItem
+      setTransactionItem,
+      showAdd,
+      setShowAdd
 
     }}>
 

@@ -25,7 +25,9 @@ function Header() {
   }
 
   return (
-    <div className='w-full h-16 flex justify-between items-center'>
+    <div className='w-full min-h-16 flex flex-col-reverse lg:flex-row lg:justify-between lg:items-center'>
+
+      {/* welcome */}
       <div className=''>
         <h2 className='text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent'>
           Good morning {userData.userName || "Guest"}
@@ -34,7 +36,9 @@ function Header() {
           Here's what's happening with your finances today.
         </p>
       </div>
-      <div className='flex'>
+
+      {/* buttons */}
+      <div className='flex mb-3 lg:mb-0 justify-end'>
         <span className='p-2 flex text-xs dark:text-slate-50 items-center bg-slate-900 border border-slate-800 rounded-lg'>
           {currentDate} <CiCalendarDate className='ml-2 text-sm' />
         </span>
