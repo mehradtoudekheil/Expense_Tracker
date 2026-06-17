@@ -7,7 +7,7 @@ import { MyContext } from '../contexts/MyContext'
 import { FaPlus } from "react-icons/fa";
 function Home() {
 
-  const { alertControl , setShowAdd } = useContext(MyContext);
+  const { alertControl, setShowAdd } = useContext(MyContext);
 
   return (
     <div className='h-full w-full grid grid-cols-1 lg:grid-cols-11'>
@@ -15,10 +15,10 @@ function Home() {
       <ListSec />
       {alertControl.show && <Alert />}
       <button
-      type='button'
-      onClick={()=>setShowAdd(true)}
-      className='w-12 h-12 rounded-full bg-linear-to-r from-blue-500 to-purple-500 trxt-slate-50  flex justify-center items-center absolute bottom-5 right-5'>
-        <FaPlus/>
+        type='button'
+        onClick={() => setShowAdd(true)}
+        className='w-12 h-12 rounded-full bg-linear-to-r from-blue-500 to-purple-500 trxt-slate-50 flex justify-center items-center absolute bottom-5 right-5 block lg:hidden'>
+        <FaPlus />
       </button>
     </div>
   )

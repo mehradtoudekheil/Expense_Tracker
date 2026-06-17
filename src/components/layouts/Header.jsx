@@ -25,10 +25,10 @@ function Header() {
   }
 
   return (
-    <div className='w-full min-h-16 flex flex-col-reverse lg:flex-row lg:justify-between lg:items-center'>
+    <div className='w-full lg:h-16 flex flex-col-reverse lg:flex-row lg:justify-between lg:items-center'>
 
       {/* welcome */}
-      <div className=''>
+      <div className='pt-2'>
         <h2 className='text-xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent'>
           Good morning {userData.userName || "Guest"}
         </h2>
@@ -38,7 +38,7 @@ function Header() {
       </div>
 
       {/* buttons */}
-      <div className='flex mb-3 lg:mb-0 justify-end'>
+      <div className='flex justify-end'>
         <span className='p-2 flex text-xs dark:text-slate-50 items-center bg-slate-900 border border-slate-800 rounded-lg'>
           {currentDate} <CiCalendarDate className='ml-2 text-sm' />
         </span>

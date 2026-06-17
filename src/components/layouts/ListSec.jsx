@@ -8,14 +8,14 @@ import { MyContext } from '../../contexts/MyContext'
 
 function ListSec() {
 
-    const {showAdd} = useContext(MyContext)
+    const { showAdd } = useContext(MyContext)
 
     return (
-        <div className="h-full lg:col-span-8 col-span-1 p-4 flex flex-col justify-between">
+        <div className="h-screen min-h-0 overflow-y-scroll lg:col-span-8 col-span-1 p-4 flex flex-col gap-4">
             <Header />
-            <Total/>
-            <TransactionContainer/>
-            <ChartContainer/>
+            <Total />
+            <TransactionContainer />
+            <ChartContainer />
         </div>
     )
 }
