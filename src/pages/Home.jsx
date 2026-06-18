@@ -10,7 +10,7 @@ function Home() {
   const { alertControl, setShowAdd } = useContext(MyContext);
 
   return (
-    <div className='h-full w-full grid grid-cols-1 lg:grid-cols-11'>
+    <div className='h-full w-full overflow-y-hidden grid grid-cols-1 lg:grid-cols-11'>
       <AddSec />
       <ListSec />
       {alertControl.show && <Alert />}
