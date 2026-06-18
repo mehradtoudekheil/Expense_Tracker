@@ -3,18 +3,17 @@ import { IoIosArrowRoundUp } from "react-icons/io";
 import TransactionItem from '../ui/TransactionItem';
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
-
+import Currency from '../feat/Currency';
 function Income() {
     
 
-    const { inTransactions } = useContext(MyContext);
+   const { inTransactions } = useContext(MyContext);
+      
+          const totalIncome = (inTransactions ?? []).reduce(
+              (sum, t) => sum + (Number(t?.amount) || 0),
+              0
+          );
 
-    // const inTransactions = (transactions ?? []).filter(
-    //     (t) => t?.user === userData?.email && t?.type === "IN"
-    // );
-    // console.log(userData.email);
-
-    // console.log(inTransactions);
 
 
     return (
@@ -27,7 +26,7 @@ function Income() {
                     Income
                 </div>
                 <p className='text-green-400/70 text-xs'>
-                    Total : $ 5230,00
+                    Total : <Currency amount={totalIncome}/>
                 </p>
             </header>
             <div className='w-full h-60 py-2 overflow-y-scroll '>
