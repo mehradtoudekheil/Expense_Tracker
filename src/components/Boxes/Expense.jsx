@@ -1,7 +1,13 @@
 import React from 'react'
 import { IoIosArrowRoundDown } from "react-icons/io";
 import TransactionItem from '../ui/TransactionItem';
+import { useContext } from 'react';
+import { MyContext } from '../../contexts/MyContext';
+
 function Expense() {
+
+    const {outTransactions} = useContext(MyContext);
+
   return (
     <div className='w-full h-full px-3'>
            <header className='w-full h-10 flex justify-between items-center'>
@@ -16,9 +22,15 @@ function Expense() {
                </p>
            </header>
            <div className='w-full h-60 py-2 overflow-y-scroll '>
-                <TransactionItem type={"EXPENSE"}/>
-                <TransactionItem type={"EXPENSE"}/>
-                <TransactionItem type={"EXPENSE"}/>
+                  {(outTransactions ?? [])
+                    .filter((t) => t != null)
+                    .map((t) => (
+                        <TransactionItem
+                            key={t.id}
+                            item={t}
+                            type="EXPENSE"
+                        />
+                    ))}
             </div>
        </div>
   )

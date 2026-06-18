@@ -109,6 +109,7 @@ function AddTransaction() {
         // create an item 
         let item = {
             id: Date.now(),
+            title : title.current.value,
             cat: category.current.value,
             type: type,
             amount: amountValue,
@@ -131,10 +132,9 @@ function AddTransaction() {
         title.current.value = "";
         category.current.value = "";
         amount.current.value = "";
-        note.current.value = "",
+        note.current.value = "";
 
-            console.log(item);
-
+            
     }
 
 

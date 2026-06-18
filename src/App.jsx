@@ -3,6 +3,7 @@ import { MyContext } from "./contexts/MyContext";
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
 import { BrowserRouter, Route, Routes, useViewTransitionState } from "react-router-dom";
+import { useMemo } from "react";
 
 function App() {
 
@@ -51,7 +52,7 @@ function App() {
 
   // Register and Login condition rendering 
   const [showLogin, setShowLogin] = useState(false);
-  const [showAdd , setShowAdd] = useState(false)
+  const [showAdd, setShowAdd] = useState(false)
 
 
   // *** --- Authentication --- ***
@@ -134,6 +135,15 @@ function App() {
   }, [userItem]);
 
 
+  // income transactions filter
+  const inTransactions = (transactions ?? []).filter(
+    (t) => t?.user === userData?.email && t?.type === "IN"
+  );
+  // expense transactions filter
+  const outTransactions = (transactions ?? []).filter(
+    (t) => t?.user === userData?.email && t?.type === "OUT"
+  );
+
 
   // *** --- Show Alert --- ***
   // set Alert
@@ -176,7 +186,9 @@ function App() {
       transactionItem,
       setTransactionItem,
       showAdd,
-      setShowAdd
+      setShowAdd,
+      inTransactions,
+      outTransactions
 
     }}>
 
