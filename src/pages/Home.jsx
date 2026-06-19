@@ -5,9 +5,10 @@ import Alert from '../components/Alerts/Alert'
 import { useContext } from 'react'
 import { MyContext } from '../contexts/MyContext'
 import { FaPlus } from "react-icons/fa";
+import InfoModal from '../components/modals/InfoModal'
 function Home() {
 
-  const { alertControl, setShowAdd } = useContext(MyContext);
+  const { alertControl, setShowAdd , showInfoModal} = useContext(MyContext);
 
   return (
     <div className='h-full w-full overflow-y-hidden grid grid-cols-1 lg:grid-cols-11'>
@@ -20,7 +21,9 @@ function Home() {
         className='w-12 h-12 rounded-full bg-linear-to-r from-blue-500 to-purple-500 trxt-slate-50 flex justify-center items-center absolute bottom-5 right-5 block lg:hidden'>
         <FaPlus />
       </button>
+      {showInfoModal && <InfoModal/>}
     </div>
+    
   )
 }
 

@@ -3,8 +3,13 @@ import { SlOptionsVertical } from "react-icons/sl";
 import { BsBag } from "react-icons/bs";
 import Currency from '../feat/Currency';
 import DateFormat from '../feat/DateFormat';
+import { useContext } from 'react';
+import { MyContext } from '../../contexts/MyContext';
 
 function TransactionItem({ type, item }) {
+
+const {setShowInfoModal} = useContext(MyContext)
+
 if (!item) return null;
     let green;
     if (type === "INCOME") {
@@ -36,9 +41,12 @@ if (!item) return null;
                 <p className={` ${green ? "text-green-500/70" : "text-red-500/70"} text-md mr-10`}>
                     <Currency amount={item.amount}/>
                 </p>
-                <span className='text-slate-400'>
+                <button
+                type='button'
+                onClick={()=>{setShowInfoModal(true)}}
+                className='text-slate-400'>
                     <SlOptionsVertical />
-                </span>
+                </button>
             </div>
         </div>
     )

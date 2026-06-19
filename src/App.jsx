@@ -53,6 +53,8 @@ function App() {
   // Register and Login condition rendering 
   const [showLogin, setShowLogin] = useState(false);
   const [showAdd, setShowAdd] = useState(false)
+  // Condition for show info modal 
+  const [showInfoModal , setShowInfoModal] = useState(true);
 
 
   // *** --- Authentication --- ***
@@ -188,7 +190,9 @@ function App() {
       showAdd,
       setShowAdd,
       inTransactions,
-      outTransactions
+      outTransactions,
+      showInfoModal,
+      setShowInfoModal
 
     }}>
 
