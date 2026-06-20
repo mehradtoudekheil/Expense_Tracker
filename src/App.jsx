@@ -174,8 +174,12 @@ function App() {
   // selecct item for show and deleted
 
   const [selectedItem , setSelectedItem] = useState(null);
-  console.log(selectedItem);
-  
+
+  // category filter
+  const [filterItems , setFilterItems] = useState([]);
+  const [isFiltered , setIsFiltered] = useState(false);
+
+
 
   return (
     <MyContext.Provider value={{
@@ -204,7 +208,9 @@ function App() {
       selectedItem,
       setSelectedItem, 
       showDeleteModal,
-      setShowDeleteModal
+      setShowDeleteModal,
+      filterItems,
+      setFilterItems
 
     }}>
 
