@@ -54,7 +54,9 @@ function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showAdd, setShowAdd] = useState(false)
   // Condition for show info modal 
-  const [showInfoModal , setShowInfoModal] = useState(true);
+  const [showInfoModal , setShowInfoModal] = useState(false);
+  // Condition for delete modal
+  const [showDeleteModal , setShowDeleteModal] = useState(false);
 
 
   // *** --- Authentication --- ***
@@ -169,6 +171,12 @@ function App() {
     }
   }, [alertControl])
 
+  // selecct item for show and deleted
+
+  const [selectedItem , setSelectedItem] = useState(null);
+  console.log(selectedItem);
+  
+
   return (
     <MyContext.Provider value={{
       dark,
@@ -192,7 +200,11 @@ function App() {
       inTransactions,
       outTransactions,
       showInfoModal,
-      setShowInfoModal
+      setShowInfoModal,
+      selectedItem,
+      setSelectedItem, 
+      showDeleteModal,
+      setShowDeleteModal
 
     }}>
 

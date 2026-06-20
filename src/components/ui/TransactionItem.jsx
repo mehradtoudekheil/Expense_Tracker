@@ -8,7 +8,7 @@ import { MyContext } from '../../contexts/MyContext';
 
 function TransactionItem({ type, item }) {
 
-const {setShowInfoModal} = useContext(MyContext)
+const {setShowInfoModal , setSelectedItem} = useContext(MyContext)
 
 if (!item) return null;
     let green;
@@ -19,7 +19,10 @@ if (!item) return null;
     }
 
     // console.log(item.date);
-    
+    const showInfoHandler = ()=>{
+        setShowInfoModal(true)
+        setSelectedItem(item)
+    }
 
 
     return (
@@ -43,7 +46,7 @@ if (!item) return null;
                 </p>
                 <button
                 type='button'
-                onClick={()=>{setShowInfoModal(true)}}
+                onClick={()=>{showInfoHandler()}}
                 className='text-slate-400'>
                     <SlOptionsVertical />
                 </button>

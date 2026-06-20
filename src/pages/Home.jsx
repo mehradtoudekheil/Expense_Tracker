@@ -6,9 +6,11 @@ import { useContext } from 'react'
 import { MyContext } from '../contexts/MyContext'
 import { FaPlus } from "react-icons/fa";
 import InfoModal from '../components/modals/InfoModal'
+
+import DeleteModal from '../components/modals/DeleteModal'
 function Home() {
 
-  const { alertControl, setShowAdd , showInfoModal} = useContext(MyContext);
+  const { alertControl, setShowAdd , showInfoModal , showDeleteModal} = useContext(MyContext);
 
   return (
     <div className='h-full w-full overflow-y-hidden grid grid-cols-1 lg:grid-cols-11'>
@@ -22,6 +24,7 @@ function Home() {
         <FaPlus />
       </button>
       {showInfoModal && <InfoModal/>}
+      {showDeleteModal && <DeleteModal/>}
     </div>
     
   )
