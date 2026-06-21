@@ -9,10 +9,18 @@ import { FaPlus, FaSadCry } from "react-icons/fa";
 import { useContext, useRef, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
+
+// date 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 function AddTransaction() {
 
     // states 
     const [type, setType] = useState("IN");
+    const [selectedDate, setSelectedDate] = useState(
+        new Date().toISOString().split("T")[0]
+    );
 
     // get context info
     const { setTransactionItem, setAlertControl, userData } = useContext(MyContext);
@@ -109,14 +117,14 @@ function AddTransaction() {
         // create an item 
         let item = {
             id: Date.now(),
-            title : title.current.value,
+            title: title.current.value,
             cat: category.current.value,
             type: type,
             amount: amountValue,
             note: note.current.value,
-            date: date.current.value,
+            date: selectedDate,
             user: userData.email,
-        }
+        };
 
         setTransactionItem(item);
 
@@ -134,7 +142,11 @@ function AddTransaction() {
         amount.current.value = "";
         note.current.value = "";
 
-            
+        setSelectedDate(
+            new Date().toISOString().split("T")[0]
+        );
+
+
     }
 
 
@@ -241,16 +253,22 @@ function AddTransaction() {
                     <label className='text-sm text-slate-50'>
                         Date
                     </label>
-                    <div className='w-full flex h-10 border border-slate-800 rounded-md mt-3 text-slate-400'>
+
+                    <div className='w-full flex h-10 border border-slate-800 rounded-md mt-3 text-slate-400 items-center'>
                         <span className='h-full w-9 flex justify-center items-center'>
                             <CiCalendarDate />
                         </span>
-                        <input
+
+                        <DatePicker
                             onFocus={(e) => checkUserLogin(e)}
-                            ref={date}
-                            type="date"
-                            className='h-full w-72 pl-3 text-sm outline-none [&::-webkit-calendar-picker-indicator]:hidden'
-                            defaultValue={new Date().toISOString().split("T")[0]}
+                            selected={new Date(selectedDate)}
+                            onChange={(date) => {
+                                const formattedDate =
+                                    date?.toISOString().split("T")[0];
+                                setSelectedDate(formattedDate);
+                            }}
+                            dateFormat="yyyy-MM-dd"
+                            className='h-full w-full pl-3 text-sm  text-slate-400 outline-none h-full'
                         />
                     </div>
                 </div>

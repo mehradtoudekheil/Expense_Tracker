@@ -93,7 +93,7 @@ function Income() {
                 </div>
             </header>
 
-            <div className='w-full h-60 py-1 overflow-y-scroll'>
+            <div className='w-full h-56 py-1 overflow-y-scroll'>
                 {sortedTransactions.length === 0 ? (
                     <div className='w-full h-full flex flex-col items-center justify-center text-slate-500'>
                         <MdOutlineInbox className='text-5xl mb-2' />
