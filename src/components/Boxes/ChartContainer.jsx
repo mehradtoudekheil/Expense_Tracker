@@ -9,9 +9,6 @@ function ChartContainer() {
         <h6 className='text-slate-50 text-md'>
           Charts & Overview
         </h6>
-        <select className='h-8 px-2 outline-none border border-slate-800 rounded-md text-sm text-slate-50'>
-          <option value="">Last Month</option>
-        </select>
       </header>
       <div className='w-full grid grid-cols-1 p-2 lg:grid-cols-3 gap-3'>
         <ExpenseDonutChart/>

@@ -9,9 +9,9 @@ function AddSec() {
 const {showAdd , setShowAdd} = useContext(MyContext);
 
   return (
-    <div className={`lg:block col-span-1 lg:col-span-3 h-full p-4 ${showAdd ? "block absolute lg:relative top-0 left-0 z-100" : "hidden"}`}>
+    <div className={`lg:block col-span-1 lg:col-span-3 h-full p-4 ${showAdd ? "block absolute lg:relative top-0 left-0 z-1000" : "hidden"}`}>
         <div className='h-full w-full bg-slate-900 rounded-xl border border-slate-800 px-4 '>
-            <header className='flex items-center border-b border-slate-800 py-4 relative'>
+            <header className='flex items-center border-b border-slate-800 pt-10 pb-4 lg:py-4 relative'>
               <button 
               type='button'
               onClick={()=>setShowAdd(false)}
