@@ -4,7 +4,7 @@ import TransactionItem from '../ui/TransactionItem';
 import { MyContext } from '../../contexts/MyContext';
 import Currency from '../feat/Currency';
 import { MdOutlineInbox } from "react-icons/md";
-
+import { AnimatePresence, motion } from "framer-motion";
 function Income() {
 
     const [sort, setSort] = useState("");
@@ -44,12 +44,12 @@ function Income() {
         <div className='w-full h-full px-3'>
             <header className='w-full flex justify-between items-center gap-2 py-2'>
                 <div className='text-slate-50 items-center'>
-                   <div className='flex items-center'>
-                     <span className='w-6 h-6 text-green-400/70 rounded-full border border-green-400/70 mr-2 flex justify-center items-center'>
-                        <IoIosArrowRoundUp className='text-xl' />
-                    </span>
-                    Income
-                   </div>
+                    <div className='flex items-center'>
+                        <span className='w-6 h-6 text-green-400/70 rounded-full border border-green-400/70 mr-2 flex justify-center items-center'>
+                            <IoIosArrowRoundUp className='text-xl' />
+                        </span>
+                        Income
+                    </div>
                     <p className='text-green-400/70 mt-1 text-xs whitespace-nowrap'>
                         Total : <Currency amount={totalIncome} />
                     </p>
@@ -87,22 +87,33 @@ function Income() {
             </header>
 
             <div className='w-full h-56 py-1 overflow-y-scroll'>
-                {sortedTransactions.length === 0 ? (
-                    <div className='w-full h-full flex flex-col items-center justify-center text-slate-500'>
-                        <MdOutlineInbox className='text-5xl mb-2' />
-                        <p className='text-sm'>
-                            No transactions found in this category.
-                        </p>
-                    </div>
-                ) : (
-                    sortedTransactions.map((t) => (
-                        <TransactionItem
-                            key={t.id}
-                            item={t}
-                            type="INCOME"
-                        />
-                    ))
-                )}
+                <AnimatePresence mode="popLayout">
+                    {sortedTransactions.length === 0 ? (
+                        <div className='w-full h-full flex flex-col items-center justify-center text-slate-500'>
+                            <MdOutlineInbox className='text-5xl mb-2' />
+                            <p className='text-sm'>
+                                No transactions found in this category.
+                            </p>
+                        </div>
+                    ) : (
+                        sortedTransactions.map((t) => (
+                            <motion.div
+                                key={t.id}
+                                layout
+                                initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{
+                                    opacity: 0,
+                                    x: -30,
+                                    scale: 0.9,
+                                    transition: { duration: 0.2 }
+                                }}
+                            >
+                                <TransactionItem item={t} type="INCOME" />
+                            </motion.div>
+                        ))
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );

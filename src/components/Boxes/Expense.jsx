@@ -4,7 +4,7 @@ import TransactionItem from '../ui/TransactionItem';
 import { MyContext } from '../../contexts/MyContext';
 import Currency from '../feat/Currency';
 import { MdOutlineInbox } from "react-icons/md";
-
+import { AnimatePresence, motion } from "framer-motion";
 function Income() {
 
     const [sort, setSort] = useState("");
@@ -94,22 +94,33 @@ function Income() {
             </header>
 
             <div className='w-full h-56 py-1 overflow-y-scroll'>
-                {sortedTransactions.length === 0 ? (
-                    <div className='w-full h-full flex flex-col items-center justify-center text-slate-500'>
-                        <MdOutlineInbox className='text-5xl mb-2' />
-                        <p className='text-sm'>
-                            No transactions found in this category.
-                        </p>
-                    </div>
-                ) : (
-                    sortedTransactions.map((t) => (
-                        <TransactionItem
-                            key={t.id}
-                            item={t}
-                            type="EXPENSE"
-                        />
-                    ))
-                )}
+                <AnimatePresence mode="popLayout">
+                    {sortedTransactions.length === 0 ? (
+                        <div className='w-full h-full flex flex-col items-center justify-center text-slate-500'>
+                            <MdOutlineInbox className='text-5xl mb-2' />
+                            <p className='text-sm'>
+                                No transactions found in this category.
+                            </p>
+                        </div>
+                    ) : (
+                        sortedTransactions.map((t) => (
+                            <motion.div
+                                key={t.id}
+                                layout
+                                initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{
+                                    opacity: 0,
+                                    x: 25,   // اینجا برعکس Income (به راست میره)
+                                    scale: 0.9,
+                                    transition: { duration: 0.2 }
+                                }}
+                            >
+                                <TransactionItem item={t} type="EXPENSE" />
+                            </motion.div>
+                        ))
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );

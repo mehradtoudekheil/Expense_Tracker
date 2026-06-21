@@ -1,35 +1,91 @@
-import React from 'react'
-import { FaPlus , FaRegTimesCircle } from "react-icons/fa";
+import React, { useContext } from 'react';
+import { motion, AnimatePresence } from "framer-motion";
+import { FaPlus, FaRegTimesCircle } from "react-icons/fa";
 import AddTransaction from '../Forms/AddTransaction';
-import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 
 function AddSec() {
 
-const {showAdd , setShowAdd} = useContext(MyContext);
+  const { showAdd, setShowAdd } = useContext(MyContext);
 
   return (
-    <div className={`lg:block col-span-1 lg:col-span-3 h-full p-4 ${showAdd ? "block absolute lg:relative top-0 left-0 z-1000" : "hidden"}`}>
-        <div className='h-full w-full bg-slate-900 rounded-xl border border-slate-800 px-4 '>
-            <header className='flex items-center border-b border-slate-800 pt-10 pb-4 lg:py-4 relative'>
-              <button 
-              type='button'
-              onClick={()=>setShowAdd(false)}
-              className='text-xl font-bold text-red-300 absolute top-3 right-1 block lg:hidden'
-              >
-                <FaRegTimesCircle/>
-              </button>
-              <span className='w-10 h-10 bg-blue-500 text-slate-50 flex justify-center items-center rounded-md'>
-                <FaPlus/>
-              </span>
-              <h3 className='text-slate-50 text-md ml-2'>
-                Add New Transaction
-              </h3>
-            </header>
-            <AddTransaction/>
+    <>
+      {/* ================= DESKTOP ================= */}
+      <div className="hidden lg:block col-span-3 h-full p-4">
+        <div className='h-full w-full bg-slate-900 rounded-xl border border-slate-800 px-4'>
+
+          <header className='flex items-center border-b border-slate-800 py-4'>
+            <span className='w-10 h-10 bg-blue-500 text-slate-50 flex justify-center items-center rounded-md'>
+              <FaPlus />
+            </span>
+
+            <h3 className='text-slate-50 text-md ml-2'>
+              Add New Transaction
+            </h3>
+          </header>
+
+          <AddTransaction />
+
         </div>
-    </div>
-  )
+      </div>
+
+      {/* ================= MOBILE DRAWER ================= */}
+      <AnimatePresence>
+        {showAdd && (
+          <motion.div
+            className="fixed inset-0 z-50 flex lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+
+            {/* BACKDROP */}
+            <motion.div
+              className="absolute inset-0 bg-slate-950/70"
+              onClick={() => setShowAdd(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+
+            {/* PANEL */}
+            <motion.div
+              className="relative w-full h-full p-4 bg-slate-900"
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ duration: 0.25 }}
+            >
+
+              <header className='flex items-center border-b border-slate-800 pt-10 pb-4 relative'>
+
+                <button
+                  type='button'
+                  onClick={() => setShowAdd(false)}
+                  className='text-xl text-red-300 absolute top-3 right-1'
+                >
+                  <FaRegTimesCircle />
+                </button>
+
+                <span className='w-10 h-10 bg-blue-500 text-slate-50 flex justify-center items-center rounded-md'>
+                  <FaPlus />
+                </span>
+
+                <h3 className='text-slate-50 text-md ml-2'>
+                  Add New Transaction
+                </h3>
+
+              </header>
+
+              <AddTransaction />
+
+            </motion.div>
+
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
 }
 
-export default AddSec
+export default AddSec;

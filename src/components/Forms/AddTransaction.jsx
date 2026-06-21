@@ -23,7 +23,7 @@ function AddTransaction() {
     );
 
     // get context info
-    const { setTransactionItem, setAlertControl, userData } = useContext(MyContext);
+    const { setTransactionItem, setAlertControl, userData , setShowAdd } = useContext(MyContext);
 
     // set ref item
     const title = useRef()
@@ -146,6 +146,7 @@ function AddTransaction() {
             new Date().toISOString().split("T")[0]
         );
 
+        setShowAdd(false);
 
     }
 
