@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-/* کل تقویم */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* all calender */
 .react-datepicker.react-datepicker {
   background-color: #0f172a; /* slate-900 */
   border: 1px solid #1e293b; /* slate-800 */

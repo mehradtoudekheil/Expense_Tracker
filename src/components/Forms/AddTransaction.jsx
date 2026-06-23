@@ -156,32 +156,32 @@ function AddTransaction() {
             <form className='w-full'>
                 {/* title box */}
                 <div>
-                    <label className='text-sm text-slate-50'>
+                    <label className='text-sm text-slate-500 dark-text-slate-50'>
                         Title
                     </label>
                     <input
                         onFocus={(e) => checkUserLogin(e)}
                         ref={title}
                         type="text"
-                        className='h-10 w-full border border-slate-800 text-sm pl-3 outline-none rounded-md mt-3 text-slate-400'
+                        className='h-10 w-full border border-slate-200 dark:border-slate-200 text-sm pl-3 outline-none rounded-md mt-3 dark:text-slate-400 text-slate-900'
                         placeholder='Enter title (e.g. Salary)'
                     />
                 </div>
 
                 {/* Amount box */}
                 <div className='mt-4'>
-                    <label className='text-sm text-slate-50'>
+                    <label className='text-sm text-slate-500 dark:text-slate-50'>
                         Amount
                     </label>
-                    <div className='w-full flex h-10 border border-slate-800 rounded-md mt-3 text-slate-400'>
-                        <span className='h-full w-9 flex justify-center items-center'>
+                    <div className='w-full flex h-10 border border-slate-200 dark:border-slate-800 rounded-md mt-3'>
+                        <span className='h-full w-9 flex justify-center items-center text-slate-500 dark:text-slate-400'>
                             $
                         </span>
                         <input
                             onFocus={(e) => checkUserLogin(e)}
                             ref={amount}
                             type="text"
-                            className='h-full w-72 pl-3 text-sm outline-none'
+                            className='h-full w-72 pl-3 text-sm outline-none text-slate-900 dark:text-slate-400'
                             placeholder='Enter Amount'
                         />
                     </div>
@@ -189,12 +189,12 @@ function AddTransaction() {
 
                 {/* Category box */}
                 <div className='mt-4'>
-                    <label className='text-sm text-slate-50'>
+                    <label className='text-sm text-slate-500 dark:text-slate-50'>
                         Category
                     </label>
-                    <div className='w-full flex h-10 border border-slate-800 rounded-md mt-3 text-slate-400'>
+                    <div className='w-full flex h-10 border dark:border-slate-800 border-slate-200 rounded-md mt-3 text-slate-500 dark:text-slate-400'>
                         <span className='h-full w-9 flex justify-center items-center'>
-                            <TbCategory />
+                            <TbCategory className='text-slate-500 dark:text-slate-400' />
                         </span>
                         <select
                             onFocus={(e) => checkUserLogin(e)}
@@ -216,7 +216,7 @@ function AddTransaction() {
 
                 {/* type */}
                 <div className='mt-4'>
-                    <label className='text-sm text-slate-50'>
+                    <label className='text-sm text-slate-500 dark:text-slate-50'>
                         Type
                     </label>
                     <div className='w-full gap-x-1 grid grid-cols-2 mt-3'>
@@ -226,7 +226,7 @@ function AddTransaction() {
                             className={`col-span-1 h-10 border rounded-md flex justify-center items-center text-sm
                                      ${type === "IN"
                                     ? "border-green-500 text-green-500 bg-green-500/10"
-                                    : "border-slate-800 text-slate-400"
+                                    : "border-slate-200 dark:border-slate-800 text-slate-400"
                                 }`}
                         >
                             <BsArrowDownCircle className='mr-2 text-lg' />
@@ -239,7 +239,7 @@ function AddTransaction() {
                             className={`col-span-1 h-10 border rounded-md flex justify-center items-center text-sm
                                   ${type === "OUT"
                                     ? "border-red-500 text-red-500 bg-red-500/10"
-                                    : "border-slate-800 text-slate-400"
+                                    : "border-slate-200 dark:border-slate-800 text-slate-400"
                                 }`}
                         >
                             <BsArrowUpCircle className='mr-2 text-lg' />
@@ -251,11 +251,11 @@ function AddTransaction() {
 
                 {/* Date box */}
                 <div className='mt-4'>
-                    <label className='text-sm text-slate-50'>
+                    <label className='text-sm text-slate-500 dark:text-slate-50'>
                         Date
                     </label>
 
-                    <div className='w-full flex h-10 border border-slate-800 rounded-md mt-3 text-slate-400 items-center'>
+                    <div className='w-full flex h-10 border border-slate-200 dark:border-slate-200 rounded-md mt-3 text-slate-400 items-center'>
                         <span className='h-full w-9 flex justify-center items-center'>
                             <CiCalendarDate />
                         </span>
@@ -276,14 +276,14 @@ function AddTransaction() {
 
                 {/* note box */}
                 <div className='mt-4'>
-                    <label className='text-sm text-slate-50'>
+                    <label className='text-sm text-slate-500 dark:text-slate-50'>
                         Note (Optional)
                     </label>
 
                     <textarea
                         onFocus={(e) => checkUserLogin(e)}
                         ref={note}
-                        className='min-h-15 w-full p-3 text-sm outline-none border border-slate-800 rounded-md mt-3 text-slate-400'
+                        className='min-h-15 w-full p-3 text-sm outline-none border border-slate-200 dark:border-slate-800 rounded-md mt-3 text-slate-400'
                         placeholder='Add a note...'
                     ></textarea>
                 </div>
@@ -291,7 +291,7 @@ function AddTransaction() {
                 <button
                     type='button'
                     onClick={addTransactionHandler}
-                    className='h-12 mt-4 w-full flex justify-between items-center px-3 bg-linear-to-r from-blue-500 to-purple-500 rounded-md'>
+                    className='h-12 mt-4 w-full text-slate-50 flex justify-between items-center px-3 bg-linear-to-r from-blue-500 to-purple-500 rounded-md'>
                     <span></span>
                     Add Transaction
                     <FaPlus />

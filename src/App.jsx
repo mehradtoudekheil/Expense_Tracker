@@ -214,7 +214,7 @@ function App() {
 
     }}>
 
-      <div className="w-full h-screen dark:bg-slate-950 dark:text-slate-50">
+      <div className="w-full h-screen bg-slate-100 dark:bg-slate-950 text-slate-900 dark:text-slate-50">
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
