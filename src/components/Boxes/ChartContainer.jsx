@@ -4,9 +4,9 @@ import ExpenseLineChart from '../charts/ExpenseLineChart'
 import WeeklyChart from '../charts/WeeklyChart'
 function ChartContainer() {
   return (
-    <div className='w-full  dark:bg-slate-900 rounded-xl border border-slate-800'>
-      <header className='h-12 w-full flex justify-between items-center border-b border-slate-800 px-3'>
-        <h6 className='text-slate-50 text-md'>
+    <div className='w-full bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800'>
+      <header className='h-12 w-full flex justify-between items-center border-b border-slate-200 dark:border-slate-800 px-3'>
+        <h6 className='text-slate-900 dark:text-slate-50 text-md'>
           Charts & Overview
         </h6>
       </header>

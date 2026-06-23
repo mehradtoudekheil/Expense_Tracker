@@ -9,7 +9,7 @@ import TotalTransaction from '../feat/TotalTransaction'
 
 function Total() {
   return (
-    <div className='w-full lg:h-28 dark:bg-slate-900 rounded-xl border border-slate-800 grid grid-cols-1 lg:grid-cols-4 p-4'>
+    <div className='w-full lg:h-28 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 grid grid-cols-1 lg:grid-cols-4 p-4'>
 
       <div className='col-span-1 h-18 lg:h-full'>
        <CurrentBalance/>

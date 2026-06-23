@@ -26,13 +26,13 @@ if (!item) return null;
 
 
     return (
-        <div className='w-full h-12 border-b border-slate-800 flex justify-between items-center mt-2 py-2'>
+        <div className='w-full h-12 border-b border-slate-200 dark:border-slate-800 flex justify-between items-center mt-2 py-2'>
             <div className='flex items-center'>
-                <span className={`h-8 w-8 rounded-md ${green ? "bg-green-400/30 border border-green-400/20" : "bg-red-400/40 border border-red-400/30"} text-slate-50 flex justify-center items-center`}>
+                <span className={`h-8 w-8 rounded-md ${green ? "bg-green-300 dark:bg-green-400/30 border border-green-400 dark:border-green-400/20" : "bg-red-300 dark:bg-red-400/40 border border-red-400 dark:border-red-400/30"} text-slate-50 flex justify-center items-center`}>
                     <BsBag />
                 </span>
                 <div className='ml-3'>
-                    <p className='text-slate-50 text-md'>
+                    <p className='text-slate-900 dark:text-slate-50 text-md'>
                         {item.title}
                     </p>
                     <p className='text-xs text-slate-400'>

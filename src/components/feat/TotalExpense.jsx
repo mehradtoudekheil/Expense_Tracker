@@ -15,15 +15,15 @@ function TotalExpense() {
 
   return (
    <div className='w-full h-full flex items-center lg:px-2'>
-           <span className='w-8 lg:w-10 h-8 lg:h-10 bg-red-400/40 border border-red-400/30 flex justify-center items-center rounded-md'>
+           <span className='w-8 lg:w-10 h-8 lg:h-10 bg-red-300 border-red-400 dark:bg-red-400/40 border dark:border-red-400/30 flex justify-center items-center rounded-md'>
                <IoIosTrendingDown className='text-slate-50 text-xl lg:text-2xl'/>
            </span>
            <div className='ml-3'>
-               <p className='text-xs text-slate-400'>Total Expense</p>
-               <p className='text-lg text-red-400'>
+               <p className='text-xs text-slate-500 dark:text-slate-400'>Total Expense</p>
+               <p className='text-lg text-red-500 dark:text-red-400'>
                 <Currency amount={totalExpense}/>
                </p>
-               <p className='text-xs text-slate-400 hidden lg:block'>-8.3% from last month</p>
+               <p className='text-xs text-slate-500 dark:text-slate-400 hidden lg:block'>-8.3% from last month</p>
            </div>
        </div>
   )

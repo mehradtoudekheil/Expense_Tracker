@@ -66,7 +66,7 @@ function ExpenseDonutChart() {
   return (
     <div className="w-full h-56 gap-2 flex flex-col">
 
-      <h6 className="text-slate-50 pl-3 text-sm font-bold">
+      <h6 className="text-slate-500 dark:text-slate-50 pl-3 text-sm font-bold">
         Expenses By Category
       </h6>
 
@@ -100,8 +100,8 @@ function ExpenseDonutChart() {
           <div className="absolute text-center pointer-events-none">
             {hasData ? (
               <>
-                <p className="text-[10px] text-slate-400">Total</p>
-                <p className="text-sm font-bold text-white">
+                <p className="text-[10px] text-slate-500 dark:text-slate-400">Total</p>
+                <p className="text-sm font-bold text-slate-900 dark:text-slate-50">
                   ${totalExpense.toFixed(0)}
                 </p>
               </>
@@ -131,7 +131,7 @@ function ExpenseDonutChart() {
               return (
                 <div
                   key={i}
-                  className="flex items-center justify-between text-gray-300"
+                  className="flex items-center justify-between text-slate-500 dark:text-gray-300"
                 >
                   <div className="flex items-center gap-1">
 

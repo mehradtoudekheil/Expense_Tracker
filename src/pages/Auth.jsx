@@ -45,7 +45,7 @@ function Auth() {
       {/* Home Button */}
       <Link
         to={"/"}
-        className="p-2 flex text-sm dark:text-slate-50 items-center bg-slate-900 border border-slate-800 rounded-lg hover:scale-110 transition duration-300 top-5 left-10 absolute cursor-pointer"
+        className="p-2 flex text-sm text-slate-500 dark:text-slate-50 items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg hover:scale-110 transition duration-300 top-5 left-10 absolute cursor-pointer"
       >
         <TbHome className="mr-2" /> Home
       </Link>

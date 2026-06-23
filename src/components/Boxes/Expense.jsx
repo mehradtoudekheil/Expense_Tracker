@@ -45,14 +45,14 @@ function Income() {
     return (
         <div className='w-full h-full px-3'>
             <header className='w-full flex justify-between items-center gap-2 py-2'>
-                <div className='text-slate-50 items-center'>
+                <div className='text-slate-900 dark:text-slate-50 items-center'>
                     <div className='flex items-center'>
-                        <span className='w-6 h-6 text-red-400/70 rounded-full border border-red-400/70 mr-2 flex justify-center items-center'>
+                        <span className='w-6 h-6 text-red-400 dark:text-red-400/70 rounded-full border border-red-400 dark:border-red-400/70 mr-2 flex justify-center items-center'>
                             <IoIosArrowRoundUp className='text-xl' />
                         </span>
                         Expense
                     </div>
-                    <p className='text-red-400/70 mt-1 text-xs whitespace-nowrap'>
+                    <p className='text-red-400 dark:text-red-400/70 mt-1 text-xs whitespace-nowrap'>
                         Total : <Currency amount={totalExpense} />
                     </p>
 
@@ -63,7 +63,7 @@ function Income() {
                     <select
                         value={sort}
                         onChange={(e) => setSort(e.target.value)}
-                        className='bg-slate-900 text-slate-400 border border-slate-800 text-xs rounded-md px-1 w-18 py-1 outline-none'
+                       className='bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-800 text-xs rounded-md px-1 w-18 py-1 outline-none'
                     >
                         <option value="">Sort</option>
                         <option value="date-desc">Date-Desc</option>
@@ -75,7 +75,7 @@ function Income() {
                     <select
                         value={filter}
                         onChange={(e) => setFilter(e.target.value)}
-                        className='bg-slate-900 text-slate-400 border border-slate-800 w-18 text-xs rounded-md px-1 py-1 outline-none'
+                       className='bg-white dark:bg-slate-900 text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-800 text-xs rounded-md px-1 w-18 py-1 outline-none'
                     >
                         <option value="">Filter</option>
                         <option value="TRANSPORT">Transport</option>

@@ -53,7 +53,7 @@ function MonthlyExpenseChart() {
 
   return (
     <div className="w-full h-56 text-xs flex flex-col justify-between">
-      <h6 className="text-slate-50 pl-3 text-sm font-bold">Monthly Expenses</h6>
+      <h6 className="text-slate-500 dark:text-slate-50 pl-3 text-sm font-bold">Monthly Expenses</h6>
       <LineChart width={340} height={190} data={data}>
 
         <CartesianGrid strokeDasharray="3 3" opacity={0.2} />

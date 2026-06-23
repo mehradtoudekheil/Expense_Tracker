@@ -156,14 +156,14 @@ function AddTransaction() {
             <form className='w-full'>
                 {/* title box */}
                 <div>
-                    <label className='text-sm text-slate-500 dark-text-slate-50'>
+                    <label className='text-sm text-slate-500 dark:text-slate-50'>
                         Title
                     </label>
                     <input
                         onFocus={(e) => checkUserLogin(e)}
                         ref={title}
                         type="text"
-                        className='h-10 w-full border border-slate-200 dark:border-slate-200 text-sm pl-3 outline-none rounded-md mt-3 dark:text-slate-400 text-slate-900'
+                        className='h-10 w-full border border-slate-200 dark:border-slate-800 text-sm pl-3 outline-none rounded-md mt-3 dark:text-slate-400 text-slate-900'
                         placeholder='Enter title (e.g. Salary)'
                     />
                 </div>
@@ -255,7 +255,7 @@ function AddTransaction() {
                         Date
                     </label>
 
-                    <div className='w-full flex h-10 border border-slate-200 dark:border-slate-200 rounded-md mt-3 text-slate-400 items-center'>
+                    <div className='w-full flex h-10 border border-slate-200 dark:border-slate-800 rounded-md mt-3 text-slate-400 items-center'>
                         <span className='h-full w-9 flex justify-center items-center'>
                             <CiCalendarDate />
                         </span>

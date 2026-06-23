@@ -38,7 +38,7 @@ function App() {
 
 
   // Light and Dark Mood 
-  const [dark, setDark] = useState(false)
+  const [dark, setDark] = useState(true)
 
   useEffect(() => {
     if (dark) {
