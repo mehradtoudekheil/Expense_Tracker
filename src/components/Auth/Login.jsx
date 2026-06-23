@@ -22,7 +22,9 @@ function Login() {
   const userPasswordInput = useRef();
 
   // get inputs and check them func
-  const loginHandler = () => {
+  const loginHandler = (e) => {
+    e.preventDefault();
+
     const email = userEmailInput.current.value;
     const password = userPasswordInput.current.value;
 
@@ -113,13 +115,18 @@ function Login() {
       <h1 className='bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent text-xl font-bold'>
         Sign In
       </h1>
-      <form className='w-full'>
+      <form
+        onSubmit={loginHandler}
+        className='w-full'>
 
         <div className='w-full h-10 border border-slate-200 dark:border-slate-800 rounded-md flex'>
           <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
             <CiMail />
           </span>
-          <input ref={userEmailInput} type="email" className='w-52 pl-2 outline-none text-slate-900 dark:text-slate-50' placeholder='Email :' />
+          <input
+            ref={userEmailInput}
+            type="email" className='w-52 pl-2 outline-none text-slate-900 dark:text-slate-50'
+            placeholder='Email :' />
         </div>
 
 
@@ -133,8 +140,8 @@ function Login() {
             placeholder='Password :'
           />
           <button
-            type='button'
-            onClick={() => setShowPassword(!showPassword)}
+            type='submit'
+            // onClick={() => setShowPassword(!showPassword)}
             className='w-8 h-10 cursor-pointer border-l dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
             {showPassword ? <FaEyeSlash className="text-slate-400" /> : <FaEye className="text-slate-400" />}
           </button>

@@ -24,7 +24,8 @@ function Register() {
   const { setUserData, setUserItem, registeredUsers, setShowLogin, setAlertControl } = useContext(MyContext);
 
   // get input value and check it func
-  const RegisterHandler = () => {
+  const RegisterHandler = (e) => {
+    e.preventDefault();
 
     // get inputs values
     const userName = userNameInput.current.value;
@@ -148,7 +149,9 @@ function Register() {
       <h1 className='bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent text-xl font-bold'>
         Sign Up
       </h1>
-      <form className='w-full'>
+      <form 
+      onSubmit={RegisterHandler}
+      className='w-full'>
 
         <div className='w-full h-10 border border-slate-200 dark:border-slate-800 rounded-md flex'>
           <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
@@ -198,8 +201,9 @@ function Register() {
             {showPassword ? <FaEyeSlash className="text-slate-400" /> : <FaEye className="text-slate-400" />}
           </button>
         </div>
-        
-        <button type='button' onClick={RegisterHandler} className='w-full h-10 font-bold text-slate-50 bg-linear-to-r from-blue-500 to-purple-500 rounded-md'>
+
+        <button type='submit'  
+        className='w-full h-10 font-bold text-slate-50 bg-linear-to-r from-blue-500 to-purple-500 rounded-md'>
           Sign Up
         </button>
       </form>

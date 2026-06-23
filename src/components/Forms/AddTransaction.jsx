@@ -23,7 +23,7 @@ function AddTransaction() {
     );
 
     // get context info
-    const { setTransactionItem, setAlertControl, userData , setShowAdd } = useContext(MyContext);
+    const { setTransactionItem, setAlertControl, userData, setShowAdd } = useContext(MyContext);
 
     // set ref item
     const title = useRef()
@@ -81,7 +81,8 @@ function AddTransaction() {
 
 
     // add transaction function 
-    const addTransactionHandler = () => {
+    const addTransactionHandler = (e) => {
+        e.preventDefault();
 
         // check the title not be empty
         if (title.current.value.length == 0) {
@@ -153,7 +154,9 @@ function AddTransaction() {
 
     return (
         <div className='w-full pt-4'>
-            <form className='w-full'>
+            <form 
+            onSubmit={addTransactionHandler}
+            className='w-full'>
                 {/* title box */}
                 <div>
                     <label className='text-sm text-slate-500 dark:text-slate-50'>
@@ -289,8 +292,7 @@ function AddTransaction() {
                 </div>
 
                 <button
-                    type='button'
-                    onClick={addTransactionHandler}
+                    type='submit'
                     className='h-12 mt-4 w-full text-slate-50 flex justify-between items-center px-3 bg-linear-to-r from-blue-500 to-purple-500 rounded-md'>
                     <span></span>
                     Add Transaction
