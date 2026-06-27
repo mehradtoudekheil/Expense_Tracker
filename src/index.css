@@ -10,23 +10,23 @@
   color: #f8fafc; /* slate-50 */
 }
 
-/* هدر بالا */
+/* calender header */
 .react-datepicker__header.react-datepicker__header {
   background-color: #020617; /* slate-950 */
   border-bottom: 1px solid #1e293b;
 }
 
-/* ماه جاری */
+/* this month */
 .react-datepicker__current-month.react-datepicker__current-month {
   color: #f8fafc;
 }
 
-/* فلش‌ها */
+/* arrows */
 .react-datepicker__navigation-icon.react-datepicker__navigation-icon::before {
   border-color: #f8fafc;
 }
 
-/* روزهای عادی */
+/* days */
 .react-datepicker__day.react-datepicker__day {
   color: #94a3b8; /* slate-400 */
 }
@@ -37,32 +37,30 @@
   color: #0078f1;
 }
 
-/* روز انتخاب شده */
+/* selecteed days */
 .react-datepicker__day--selected.react-datepicker__day--selected {
   background-color: #3b82f6; /* blue-500 */
   color: white;
 }
 
-/* فوکوس کیبورد */
+/* focus */
 .react-datepicker__day--keyboard-selected.react-datepicker__day--keyboard-selected {
   background-color: #2563eb;
   color: white;
 }
 
-/* امروز */
+/* today */
 .react-datepicker__day--today.react-datepicker__day--today {
   color: #60a5fa;
   font-weight: bold;
 }
 
-/* روزهای ماه قبل/بعد */
+/* other monthes days */
 .react-datepicker__day--outside-month.react-datepicker__day--outside-month {
   color: #64748b;
 }
-/* هدر روزهای هفته (Su, Mo, ...) */
 
-
-/* تک تک نام روزهای هفته */
+/* weekdays name  */
 .react-datepicker__day-name.react-datepicker__day-name {
   color: #064db2; /* slate-400 */
   font-weight: 500;
