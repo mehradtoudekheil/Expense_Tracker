@@ -6,7 +6,7 @@ function Alert() {
   const { alertControl } = useContext(MyContext);
 
   const colorMap = {
-    SUCCESS: "emerald",
+    SUCCESS: "green",
     ERROR: "red",
     WARNING: "amber",
     INFO: "blue",
@@ -16,7 +16,7 @@ function Alert() {
   const typeColor = colorMap[alertControl.type] || colorMap.DEFAULT;
 
   return (
-    <div className="w-[22rem] absolute top-[15px] right-2 z-50">
+    <div className="w-[22rem] absolute top-[15px] right-[15px] z-50">
 
       <AnimatePresence>
         {alertControl.messages.length > 0 &&
@@ -29,8 +29,8 @@ function Alert() {
               transition={{ duration: 0.2 }}
               className={`
                 h-9 my-3 rounded-md flex items-center px-3
-                ${typeColor === "emerald" && "bg-emerald-500"}
-                ${typeColor === "red" && "bg-red-400"}
+                ${typeColor === "green" && "bg-emerald-700 border border-green-500"}
+                ${typeColor === "red" && "bg-red-400 border border-rose-600"}
                 ${typeColor === "amber" && "bg-amber-400"}
                 ${typeColor === "blue" && "bg-indigo-500"}
                 ${typeColor === "gray" && "bg-gray-500"}
