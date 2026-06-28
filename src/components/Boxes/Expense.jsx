@@ -3,7 +3,6 @@ import { ArrowUp} from "lucide-react";
 import TransactionItem from '../ui/TransactionItem';
 import { MyContext } from '../../contexts/MyContext';
 import Currency from '../feat/Currency';
-import { MdOutlineInbox } from "react-icons/md";
 import { AnimatePresence, motion } from "framer-motion";
 function Income() {
 
@@ -97,7 +96,7 @@ function Income() {
                 <AnimatePresence mode="popLayout">
                     {sortedTransactions.length === 0 ? (
                         <div className='w-full h-full flex flex-col items-center justify-center text-slate-500'>
-                            <MdOutlineInbox className='text-5xl mb-2' />
+                            {/* <MdOutlineInbox className='text-5xl mb-2' /> */}
                             <p className='text-sm'>
                                 No transactions found in this category.
                             </p>

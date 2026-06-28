@@ -1,6 +1,4 @@
 import React from 'react'
-import { SlOptionsVertical } from "react-icons/sl";
-import { BsBag } from "react-icons/bs";
 import Currency from '../feat/Currency';
 import DateFormat from '../feat/DateFormat';
 import { useContext } from 'react';
@@ -22,6 +20,7 @@ import {
     Plane,
     Car,
     Landmark,
+    EllipsisVertical
 } from "lucide-react";
 
 function TransactionItem({ type, item }) {
@@ -91,7 +90,7 @@ function TransactionItem({ type, item }) {
                     type='button'
                     onClick={() => { showInfoHandler() }}
                     className='text-slate-400'>
-                    <SlOptionsVertical />
+                    <EllipsisVertical />
                 </button>
             </div>
         </div>

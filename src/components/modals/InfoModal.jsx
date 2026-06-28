@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 import Currency from '../feat/Currency';
 import DateFormat from '../feat/DateFormat';
-import { IoIosInformationCircleOutline } from "react-icons/io";
+import {Info} from "lucide-react";
 import { motion } from "framer-motion";
 
 function InfoModal() {
@@ -48,7 +48,7 @@ function InfoModal() {
 
                 {/* HEADER */}
                 <header className='flex items-center border-b border-slate-800 pb-3'>
-                    <IoIosInformationCircleOutline className='text-2xl text-blue-400 mr-2' />
+                    <Info className='text-2xl text-blue-400 mr-2' />
                     <h2 className='text-xl text-slate-50'>
                         Item Info
                     </h2>
