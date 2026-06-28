@@ -1,16 +1,128 @@
-# React + Vite
+# 💰 Expense Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and responsive Expense Tracker built with **React**, **Vite**, and **Tailwind CSS v4**.
 
-Currently, two official plugins are available:
+Track your income and expenses, visualize your financial activity with interactive charts, and manage your transactions through a clean and intuitive dashboard.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
 
-## React Compiler
+🔗 https://expense-tracker-chi-weld-92.vercel.app/
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔐 User Registration & Login
+- ✅ Form Validation
+- 🌙 Dark / ☀️ Light Theme
+- 💰 Add Income & Expense Transactions
+- 🗑 Delete Transactions
+- 📊 Interactive Dashboard
+- 🍩 Expense Category Donut Chart
+- 📈 Monthly Expense Line Chart
+- 📊 Weekly Income vs Expense Bar Chart
+- 📱 Fully Responsive Design
+- 💾 Local Storage Persistence
+- 🎨 Modern UI with Tailwind CSS
+
+---
+
+## 🛠 Tech Stack
+
+- React 19
+- Vite
+- Tailwind CSS v4
+- React Router
+- Recharts
+- Lucide React
+- Framer Motion
+- React DatePicker
+
+---
+
+## 📷 Screenshots
+
+### Dashboard
+
+```
+assets/darkMode.png
+assets/lightMode.png
+
+```
+
+---
+
+## 📁 Project Structure
+
+```
+src
+│
+├── components
+├── pages
+├── charts
+├── contexts
+├── features
+├── assets
+└── App.jsx
+```
+
+---
+
+## ⚡ Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/mehradtoudekheil/Expense_Tracker.git
+```
+
+Go to the project
+
+```bash
+cd expense-tracker
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run development server
+
+```bash
+npm run dev
+```
+
+Build production version
+
+```bash
+npm run build
+```
+
+---
+
+## 🎯 Future Improvements
+
+- Edit Transactions
+- User Profile
+- Export Reports (PDF / Excel)
+- Budget Planning
+- Notifications
+- Cloud Database
+- Multi-language Support
+
+---
+
+## 👨‍💻 Author
+
+**Mehrad Toudekheil**
+
+GitHub:
+https://github.com/mehradtoudekheil
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
