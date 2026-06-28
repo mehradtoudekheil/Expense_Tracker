@@ -45,8 +45,8 @@ Track your income and expenses, visualize your financial activity with interacti
 ### Dashboard
 
 ```
-/assets/darkMode.png
-/assets/lightMode.png
+./assets/darkMode.png
+./assets/lightMode.png
 
 ```
 
