@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { ArrowDown } from "lucide-react";
+import { ArrowDown , Inbox } from "lucide-react";
 import TransactionItem from '../ui/TransactionItem';
 import { MyContext } from '../../contexts/MyContext';
 import Currency from '../feat/Currency';
@@ -89,7 +89,7 @@ function Income() {
                 <AnimatePresence mode="popLayout">
                     {sortedTransactions.length === 0 ? (
                         <div className='w-full h-full flex flex-col items-center justify-center text-slate-500'>
-                            {/* <MdOutlineInbox className='text-5xl mb-2' /> */}
+                            <Inbox className='text-5xl mb-2' />
                             <p className='text-sm'>
                                 No transactions found in this category.
                             </p>
