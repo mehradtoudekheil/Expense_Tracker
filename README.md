@@ -42,14 +42,13 @@ Track your income and expenses, visualize your financial activity with interacti
 
 ## 📷 Screenshots
 
-### Dashboard
+### 🌙 Dark Mode
 
-```
-./assets/darkMode.png
-./assets/lightMode.png
+![Dark Mode](./assets/darkMode.png)
 
-```
+### ☀️ Light Mode
 
+![Light Mode](./assets/lightMode.png)
 ---
 
 ## 📁 Project Structure
