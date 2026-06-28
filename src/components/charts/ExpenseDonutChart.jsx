@@ -85,8 +85,9 @@ function ExpenseDonutChart() {
             >
               {chartData.map((_, i) => (
                 <Cell
-                  fill={hasData ? COLORS[i % COLORS.length] : "#334155"}
-                  stroke={hasData ? "#111827" : "#475569"}
+                key={i}
+                  fill={hasData ? COLORS[i % COLORS.length] : "#5e6b7e"}
+                  stroke={hasData ? "#111827" : "#8391a4"}
                   strokeWidth={1.5}
 
                 />
@@ -123,7 +124,7 @@ function ExpenseDonutChart() {
         {hasData && (
           <div className="w-24 h-full overflow-hidden flex flex-col justify-center gap-1 text-[9px]">
 
-            {data.slice(0, 6).map((item, i) => {
+            {data.slice(0, 6).map((item , i) => {
               const percent = (
                 (item.value / totalExpense) * 100 || 0
               ).toFixed(0);

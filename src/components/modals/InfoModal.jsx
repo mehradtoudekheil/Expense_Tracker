@@ -14,13 +14,11 @@ function InfoModal() {
         setShowDeleteModal
     } = useContext(MyContext);
 
-    // 🧠 جلوگیری از crash اگر null شد
     if (!selectedItem) return null;
 
     const backhandler = () => {
         setShowInfoModal(false);
 
-        // مهم: اول modal بسته بشه بعد پاک بشه (برای جلوگیری از flicker/crash)
         setTimeout(() => {
             setSelectedItem(null);
         }, 200);
