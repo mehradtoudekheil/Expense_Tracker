@@ -1,6 +1,5 @@
 import React from 'react'
-import { CiCalendarDate, CiDark, CiLight } from "react-icons/ci";
-import { TbLogout, TbLogin } from "react-icons/tb";
+import {CalendarDays , SunMedium , Moon , LogOut , LogIn} from "lucide-react";
 import { useContext } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 import { Link } from 'react-router-dom';
@@ -44,13 +43,13 @@ function Header() {
       {/* buttons */}
       <div className='flex justify-end'>
         <span className='p-2 flex text-xs dark:text-slate-50 text-slate-500 items-center dark:bg-slate-900 bg-white border border-slate-200 dark:border-slate-800 rounded-lg'>
-          {currentDate} <CiCalendarDate className='ml-2 text-sm' />
+          {currentDate} <CalendarDays size={18} className='ml-2 text-sm' />
         </span>
         <button
           onClick={() => { themeHandler() }}
           className='mx-4 p-2 flex text-slate-500 dark:text-slate-50 items-center bg-white dark:bg-slate-900 border-slate-200 border dark:border-slate-800 rounded-full transition duration-300 hover:scale-110'>
 
-          {dark ? <CiLight /> : <CiDark />}
+          {dark ? <SunMedium size={18} /> : <Moon size={18}/>}
         </button>
 
         {
@@ -62,7 +61,7 @@ function Header() {
                 onClick={logoutHandler}
                 className="p-2 flex text-red-400 dark:text-red-300 cursor-pointer hover:scale-110 transition duration-300 items-center bg-white dark:bg-slate-900 border dark:border-slate-800 border-slate-200 rounded-full"
               >
-                <TbLogout />
+                <LogOut size={18}/>
               </button>
             </>
           ) : (
@@ -72,7 +71,7 @@ function Header() {
                 to={"/Auth"}
                 className="p-2 flex text-xs text-slate-500 dark:text-slate-50 items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg hover:scale-110 transition duration-300 hover:text-green-400"
               >
-                Sign Up <TbLogin className="ml-2 text-sm" />
+                Sign Up <LogIn size={18} className="ml-2 text-sm" />
               </Link>
             </>
           )

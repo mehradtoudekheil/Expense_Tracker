@@ -1,10 +1,8 @@
 import React from 'react'
-import { CiUser, CiMail } from "react-icons/ci";
-import { IoKeyOutline } from "react-icons/io5";
+import {Mail , KeyRound , Eye , EyeOff} from "lucide-react";
 import { useRef, useContext, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 import { useNavigate } from 'react-router-dom';
-import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 function Login() {
@@ -120,8 +118,8 @@ function Login() {
         className='w-full'>
 
         <div className='w-full h-10 border border-slate-200 dark:border-slate-800 rounded-md flex'>
-          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
-            <CiMail />
+          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
+            <Mail size={18} />
           </span>
           <input
             ref={userEmailInput}
@@ -131,8 +129,8 @@ function Login() {
 
 
         <div className='w-full h-10 border border-slate-200 dark:border-slate-800 rounded-md flex my-4'>
-          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
-            <IoKeyOutline />
+          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
+            <KeyRound size={18} />
           </span>
           <input ref={userPasswordInput}
             type={showPassword ? "text" : "password"}
@@ -140,17 +138,16 @@ function Login() {
             placeholder='Password :'
           />
           <button
-            type='submit'
-            // onClick={() => setShowPassword(!showPassword)}
+            type='button'
+            onClick={() => setShowPassword(!showPassword)}
             className='w-8 h-10 cursor-pointer border-l dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
-            {showPassword ? <FaEyeSlash className="text-slate-400" /> : <FaEye className="text-slate-400" />}
+            {showPassword ? <EyeOff size={18} className="text-slate-400" /> : <Eye size={18} className="text-slate-400" />}
           </button>
         </div>
 
 
         <button
-          type='button'
-          onClick={loginHandler}
+          type='submit'
           className="w-full h-10 font-bold text-slate-50 rounded-md bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 bg-[length:200%_100%] transition-all duration-500 hover:bg-right-center hover:shadow-lg"
         >
           Sign In

@@ -1,9 +1,6 @@
 import React from 'react'
 // import icons
-import { TbCategory } from "react-icons/tb";
-import { BsArrowDownCircle, BsArrowUpCircle } from "react-icons/bs";
-import { CiCalendarDate } from "react-icons/ci";
-import { FaPlus, FaSadCry } from "react-icons/fa";
+import {Plus , CalendarDays , CircleArrowDown , CircleArrowUp , ListSortAscending ,  } from "lucide-react";
 
 // import tools
 import { useContext, useRef, useState } from 'react';
@@ -197,7 +194,7 @@ function AddTransaction() {
                     </label>
                     <div className='w-full flex h-10 border dark:border-slate-800 border-slate-200 rounded-md mt-3 text-slate-500 dark:text-slate-400'>
                         <span className='h-full w-9 flex justify-center items-center'>
-                            <TbCategory className='text-slate-500 dark:text-slate-400' />
+                            <ListSortAscending className='text-slate-500 dark:text-slate-400' />
                         </span>
                         <select
                             onFocus={(e) => checkUserLogin(e)}
@@ -232,7 +229,7 @@ function AddTransaction() {
                                     : "border-slate-200 dark:border-slate-800 text-slate-400"
                                 }`}
                         >
-                            <BsArrowDownCircle className='mr-2 text-lg' />
+                            <CircleArrowDown className='mr-2 text-lg' />
                             Income
                         </button>
 
@@ -245,7 +242,7 @@ function AddTransaction() {
                                     : "border-slate-200 dark:border-slate-800 text-slate-400"
                                 }`}
                         >
-                            <BsArrowUpCircle className='mr-2 text-lg' />
+                            <CircleArrowUp className='mr-2 text-lg' />
                             Expense
                         </button>
                     </div>
@@ -260,7 +257,7 @@ function AddTransaction() {
 
                     <div className='w-full flex h-10 border border-slate-200 dark:border-slate-800 rounded-md mt-3 text-slate-400 items-center'>
                         <span className='h-full w-9 flex justify-center items-center'>
-                            <CiCalendarDate />
+                            <CalendarDays />
                         </span>
 
                         <DatePicker
@@ -296,7 +293,7 @@ function AddTransaction() {
                     className='h-12 mt-4 w-full text-slate-50 flex justify-between items-center px-3 bg-linear-to-r from-blue-500 to-purple-500 rounded-md'>
                     <span></span>
                     Add Transaction
-                    <FaPlus />
+                    <Plus />
                 </button>
 
             </form>

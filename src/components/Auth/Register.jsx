@@ -1,10 +1,11 @@
 import React from 'react'
-import { CiUser, CiMail } from "react-icons/ci";
-import { IoKeyOutline } from "react-icons/io5";
+// import { CiUser, CiMail } from "react-icons/ci";
+// import { IoKeyOutline } from "react-icons/io5";
 import { useContext, useRef, useEffect, useState } from 'react';
 import { MyContext } from '../../contexts/MyContext';
 import { useNavigate } from 'react-router-dom';
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+// import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { User , Mail , KeyRound , Eye , EyeOff } from "lucide-react"
 
 function Register() {
 
@@ -154,22 +155,22 @@ function Register() {
       className='w-full'>
 
         <div className='w-full h-10 border border-slate-200 dark:border-slate-800 rounded-md flex'>
-          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
-            <CiUser />
+          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
+            <User size={18}/>
           </span>
           <input ref={userNameInput} type="text" className='w-52 pl-2 outline-none text-slate-900 dark:text-slate-50' placeholder='Name :' />
         </div>
 
         <div className='w-full h-10 border border-slate-200 dark:border-slate-800 rounded-md flex my-4'>
-          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
-            <CiMail />
+          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
+            <Mail  size={18}/>
           </span>
           <input ref={userEmailInput} type="email" className='w-52 pl-2 outline-none text-slate-900 dark:text-slate-50' placeholder='Email :' />
         </div>
         {/* password */}
         <div className='w-full h-10 border border-slate-200 dark:border-slate-800 rounded-md flex'>
-          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
-            <IoKeyOutline />
+          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
+            <KeyRound size={18} />
           </span>
           <input ref={userPasswordInput}
             type={showPassword ? "text" : "password"}
@@ -180,14 +181,14 @@ function Register() {
             type='button'
             onClick={() => setShowPassword(!showPassword)}
             className='w-8 h-10 cursor-pointer border-l dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
-            {showPassword ? <FaEyeSlash className="text-slate-400" /> : <FaEye className="text-slate-400" />}
+            {showPassword ? <EyeOff size={18} className="text-slate-400" /> : <Eye size={18} className="text-slate-400" />}
           </button>
         </div>
 
         {/* confirm pass */}
         <div className='w-full h-10 border border-slate-200 dark:border-slate-800 rounded-md flex my-4'>
-          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
-            <IoKeyOutline />
+          <span className='w-8 h-10 border-r text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
+            <KeyRound size={18} />
           </span>
           <input ref={userConfirmPasswordInput}
             type={showPassword ? "text" : "password"}
@@ -198,7 +199,7 @@ function Register() {
             type='button'
             onClick={() => setShowPassword(!showPassword)}
             className='w-8 h-10 cursor-pointer border-l dark:text-slate-50 border-slate-200 dark:border-slate-800 flex justify-center items-center'>
-            {showPassword ? <FaEyeSlash className="text-slate-400" /> : <FaEye className="text-slate-400" />}
+            {showPassword ? <EyeOff size={18} className="text-slate-400" /> : <Eye size={18} className="text-slate-400" />}
           </button>
         </div>
 

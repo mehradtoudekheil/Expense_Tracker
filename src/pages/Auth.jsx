@@ -3,8 +3,8 @@ import Login from "../components/Auth/Login";
 import Register from "../components/Auth/Register";
 import { MyContext } from "../contexts/MyContext";
 import { Link } from "react-router-dom";
-import { TbHome } from "react-icons/tb";
 import Alert from "../components/Alerts/Alert";
+import {Home} from "lucide-react";
 // import Framar-motion
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -47,7 +47,7 @@ function Auth() {
         to={"/"}
         className="p-2 flex text-sm text-slate-500 dark:text-slate-50 items-center bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg hover:scale-110 transition duration-300 top-5 left-10 absolute cursor-pointer"
       >
-        <TbHome className="mr-2" /> Home
+        <Home size={16} className="mr-2" /> Home
       </Link>
 
       {/* Alert */}

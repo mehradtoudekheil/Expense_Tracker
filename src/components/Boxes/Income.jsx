@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { IoIosArrowRoundUp } from "react-icons/io";
+import { ArrowDown } from "lucide-react";
 import TransactionItem from '../ui/TransactionItem';
 import { MyContext } from '../../contexts/MyContext';
 import Currency from '../feat/Currency';
@@ -46,7 +46,7 @@ function Income() {
                 <div className='text-slate-900 dark:text-slate-50 items-center'>
                     <div className='flex items-center'>
                         <span className='w-6 h-6 text-green-400 dark:text-green-400/70 rounded-full border border-green-400 dark:border-green-400/70 mr-2 flex justify-center items-center'>
-                            <IoIosArrowRoundUp className='text-xl' />
+                            <ArrowDown size={16} className='text-xl' />
                         </span>
                         Income
                     </div>

@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
-import { FaPlus, FaRegTimesCircle } from "react-icons/fa";
+
+import { Plus, CircleX } from "lucide-react";
+
 import AddTransaction from '../Forms/AddTransaction';
 import { MyContext } from '../../contexts/MyContext';
 
@@ -16,7 +18,7 @@ function AddSec() {
 
           <header className='flex items-center border-b border-slate-200 dark:border-slate-800 py-4'>
             <span className='w-10 h-10 bg-blue-500 text-slate-50 flex justify-center items-center rounded-md'>
-              <FaPlus />
+              <Plus />
             </span>
 
             <h3 className='text-slate-900 dark:text-slate-50 text-md ml-2'>
@@ -64,11 +66,11 @@ function AddSec() {
                   onClick={() => setShowAdd(false)}
                   className='text-xl text-red-300 absolute top-3 right-1'
                 >
-                  <FaRegTimesCircle />
+                  <CircleX />
                 </button>
 
                 <span className='w-10 h-10 bg-blue-500 text-slate-50 flex justify-center items-center rounded-md'>
-                  <FaPlus />
+                  <Plus />
                 </span>
 
                 <h3 className='text-slate-900 dark:text-slate-50 text-md ml-2'>

@@ -3,7 +3,7 @@ import AddSec from '../components/layouts/AddSec'
 import ListSec from '../components/layouts/ListSec'
 import Alert from '../components/Alerts/Alert'
 import { MyContext } from '../contexts/MyContext'
-import { FaPlus } from "react-icons/fa";
+import {Plus} from "lucide-react";
 import InfoModal from '../components/modals/InfoModal'
 import DeleteModal from '../components/modals/DeleteModal'
 import { AnimatePresence } from "framer-motion";
@@ -31,7 +31,7 @@ function Home() {
         type='button'
         onClick={() => setShowAdd(true)}
         className='w-12 h-12 rounded-full bg-linear-to-r from-blue-500 to-purple-500 text-slate-50 flex justify-center items-center absolute bottom-5 right-5 block lg:hidden'>
-        <FaPlus />
+        <Plus/>
       </button>
 
       {/* INFO MODAL */}
